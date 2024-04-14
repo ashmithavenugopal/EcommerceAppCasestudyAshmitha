@@ -12,7 +12,6 @@ C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\obj\Debug\net6.0\refin
 C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\obj\Debug\net6.0\EcommerceApplicationCasestudy.pdb
 C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\obj\Debug\net6.0\EcommerceApplicationCasestudy.genruntimeconfig.cache
 C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\obj\Debug\net6.0\ref\EcommerceApplicationCasestudy.dll
-C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\bin\Debug\net6.0\jsconfig1.json
 C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
 C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
@@ -32,3 +31,4 @@ C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\bin\Debug\net6.0\runti
 C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\obj\Debug\net6.0\EcommerceApplicationCasestudy.csproj.AssemblyReference.cache
 C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\obj\Debug\net6.0\Ecommerc.5E012480.Up2Date
+C:\Users\ashmi\source\repos\EcommerceApplicationCasestudy\obj\Debug\net6.0\EcommerceApplicationCasestudy.sourcelink.json

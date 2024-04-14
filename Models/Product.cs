@@ -10,7 +10,7 @@ namespace EcommerceApplicationCasestudy.Models
     {
         private int productId;
         private string name;
-        private decimal price;
+        private int price;
         private string description;
         private int stockQuantity;
 
@@ -26,7 +26,7 @@ namespace EcommerceApplicationCasestudy.Models
             get { return name; }
             set { name = value; }
         }
-        public decimal Price
+        public int Price
         {
             get { return price; }
             set { price = value; }

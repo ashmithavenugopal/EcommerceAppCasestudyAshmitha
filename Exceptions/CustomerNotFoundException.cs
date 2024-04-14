@@ -15,22 +15,7 @@ namespace EcommerceApplicationCasestudy.Exceptions
 
 
         }
-        public static void Customernotfound(int Customer_id)
-        {
-            OrderProcessorRepository orderProcessorRepository = new OrderProcessorRepository();
-            if (!orderProcessorRepository.CustomerNotExists(Customer_id))
-                throw new CustomerNotFoundException("Customer not found!!!");
-
-
-        }
-
-        public static void InvalidCustomerData(Customer customer)
-        {
-            if (!customer.Email.Contains('@'))
-            {
-                throw new CustomerNotFoundException("Invalid Email");
-            }
-        }
+   
     }
 }
 

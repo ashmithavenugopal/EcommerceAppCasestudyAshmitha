@@ -37,8 +37,6 @@ namespace EcommerceApplicationCasestudy.Models
             set { password = value; }
         }
     
-
-
         public Customer() 
         { 
 

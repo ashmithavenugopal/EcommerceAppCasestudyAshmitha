@@ -16,7 +16,7 @@ namespace EcommerceApplicationCasestudy.Repository
         bool AddToCart(Customer customer, Product products, int quantity);
         bool RemoveFromCart(Customer customer, Product products);
         List<Cart> GetAllFromCart(Customer customer);
-        bool PlaceOrder(Customer customer, Order order, OrderItem orderitem, Product product);
-        List<OrderItem> GetOrderByCustomer(Order order);
+        public bool PlaceOrder(Customer customer, List<Dictionary<Product, int>> productsAndquantity, string shippingAddress);
+        List<Dictionary<Product, int>> GetOrdersByCustomer(int customerId);
     }
 }

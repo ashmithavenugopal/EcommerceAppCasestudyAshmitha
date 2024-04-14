@@ -18,13 +18,19 @@ namespace EcommerceApplicationCasestudy.Service
             orderprocessorrepobj = new OrderProcessorRepository();
         }
 
-        public void Addproduct(Product product)
+        
+
+        public void AddCustomer(Customer customer)
         {
             try
+            {                
+                orderprocessorrepobj.CreateCustomer(customer);
+            }
+
+            catch (CustomerNotFoundException ex)
             {
-                ProductNotFoundException.InvalidProductData(product);
-                orderprocessorrepobj.CreateProduct (product);
-                Console.WriteLine("Record inserted successfully");
+                Console.WriteLine(ex.Message);
+                
             }
             catch (Exception ex)
             {
@@ -32,15 +38,19 @@ namespace EcommerceApplicationCasestudy.Service
             }
 
         }
-
-        public void AddCustomer(Customer customer)
+        public void Addproduct(Product product)
         {
             try
             {
-                CustomerNotFoundException.InvalidCustomerData(customer);
-                orderprocessorrepobj.CreateCustomer(customer);
-                Console.WriteLine("Customer Records inserted successfully");
+
+                orderprocessorrepobj.CreateProduct(product);
             }
+            catch (ProductNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -52,25 +62,33 @@ namespace EcommerceApplicationCasestudy.Service
         {
             try
             {
-                CustomerNotFoundException.Customernotfound(customer);
                 orderprocessorrepobj.DeleteCustomer(customer);
-                Console.WriteLine("Customer Records deleted successfully");
+            }
+                         
+            catch (CustomerNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+               
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
         }
 
         public void DeleteProduct(int product)
         {
             try
-            {
-                ProductNotFoundException.ProductNotFound(product);
-                orderprocessorrepobj.DeleteProduct(product);
-                Console.WriteLine("Product Records deleted successfully");
+            {               
+                orderprocessorrepobj.DeleteProduct(product);                
             }
+
+            catch (ProductNotFoundException ex) 
+            {
+                Console.WriteLine(ex.Message);
+                
+            }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -81,11 +99,8 @@ namespace EcommerceApplicationCasestudy.Service
         public bool Addtocart(Customer customer, Product product, int quantity)
         {
             try
-            {
-                ProductNotFoundException.ProductNotFound(product.ProductId);
-                ProductNotFoundException.NotEnoughStock(quantity, product.ProductId);
-                orderprocessorrepobj.AddToCart(customer, product, quantity);
-                Console.WriteLine("Product added to cart ");
+            {               
+                orderprocessorrepobj.AddToCart(customer, product, quantity);                
             }
             catch (Exception ex)
             {
@@ -97,17 +112,24 @@ namespace EcommerceApplicationCasestudy.Service
 
         public void Deletefromcart(Customer customer, Product product)
         {
-                CustomerNotFoundException.Customernotfound(customer.CustomerId);
-                ProductNotFoundException.ProductNotFound(product.ProductId);
+                
+            try
+            {
                 orderprocessorrepobj.RemoveFromCart(customer, product);
-                Console.WriteLine("Product deleted from cart");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           
+                                
         }
 
         public void DisplayCartRecord(Customer customerid)
         {
             try
             {
-                CustomerNotFoundException.Customernotfound(customerid.CustomerId);
+               
                 List<Cart> cartList = orderprocessorrepobj.GetAllFromCart(customerid);
                 Console.WriteLine("cartid\tcustomerid\tproductid\tquantity");
                 foreach (Cart cart1 in cartList)
@@ -116,47 +138,52 @@ namespace EcommerceApplicationCasestudy.Service
                 }
                 orderprocessorrepobj.GetAllFromCart(customerid);
             }
+            catch (CustomerNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
-        public bool Placeorderservice(Customer customer, Order order, OrderItem orderitem, Product product)
+
+        public bool PlaceOrderservice(Customer customer, List<Dictionary<Product, int>> productsAndQuantities, string shippingAddress)
         {
             try
             {
-                CustomerNotFoundException.Customernotfound(customer.CustomerId);
-                ProductNotFoundException.ProductNotFound(product.ProductId);
-                ProductNotFoundException.NotEnoughStock(orderitem.Quantity, product.ProductId);
-                orderprocessorrepobj.PlaceOrder(customer, order, orderitem, product);
-                Console.WriteLine("Order placed successfully");
+                orderprocessorrepobj.PlaceOrder(customer, productsAndQuantities, shippingAddress);
+            }
+            catch (CustomerNotFoundException ex)
+            {
+                Console.WriteLine(ex);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+
             }
             return true;
-                
-        }
-        public void DisplayOrderbyCustomer(Order order)
-        {
-            try
-            {
-                //OrderNotFoundException.ordernotfound(order.OrderId);
-                List<OrderItem> orderList = orderprocessorrepobj.GetOrderByCustomer(order);
-                Console.WriteLine("Productid\tQuantity");
-                foreach (OrderItem list in orderList)
-                {
-                    Console.WriteLine(list.ProductId + "\t\t" + list.Quantity);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
         }
 
 
+        //public void GetOrdersByCustomerservice(int customerId)
+        //{
+        //    try
+        //    {
+        //        orderprocessorrepobj.GetOrdersByCustomer(customerId);
+
+        //    }
+        //    catch (OrderNotFoundException ex)
+        //    {
+        //        Console.WriteLine(ex);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //}
     }
 }

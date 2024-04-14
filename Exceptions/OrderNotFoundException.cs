@@ -15,13 +15,6 @@ namespace EcommerceApplicationCasestudy.Exceptions
 
 
         }
-        public static void ordernotfound(int order_id)
-        {
-            OrderProcessorRepository orderProcessorRepository = new OrderProcessorRepository();
-            if (!orderProcessorRepository.OrderNotExist(order_id))
-                throw new OrderNotFoundException("Order not found!!!");
-
-
-        }
+        
     }
 }

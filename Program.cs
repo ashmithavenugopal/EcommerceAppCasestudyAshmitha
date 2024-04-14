@@ -17,7 +17,7 @@ namespace EcommerceApplicationCasestudy
 
             EcommApp ecommApp = new EcommApp();
 
-            ecommApp.Menu();
+            ecommApp.Mainmenu();
            
         }
     }
